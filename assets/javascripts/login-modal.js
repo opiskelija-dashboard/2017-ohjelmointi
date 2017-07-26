@@ -16,6 +16,7 @@ class LoginModal {
     this.loginModalNode = $('#tmc-login-modal');
     this.loginUsernameNode = $('#tmc-login-username');
     this.loginPasswordNode = $('#tmc-login-password');
+    this.dashboardToggleNode = $("#tmc-dashboard-toggle");
 
     this.updateLoginButtonText();
 
@@ -75,8 +76,10 @@ class LoginModal {
   updateLoginButtonText() {
     if(client.getUser()) {
       this.loginModalToggleNode.text(this.getLogOutText({ username: client.getUser().username }));
+      this.dashboardToggleNode.show();
     } else {
       this.loginModalToggleNode.text(this.getLoginText());
+      this.dashboardToggleNode.hide();
     }
   }
 
